@@ -1,0 +1,28 @@
+{
+    "tables": [{
+        "name": "TC_ACCOUNT",
+        "columns": [
+            { "name": "ACCOUNT_TYPE", "valueSet": ["SPECIAL", "POSTPAID", "PREPAID", "PRIVILEGED", "GOLD"] },
+            { "name": "ACCOUNT_SUB_TYPE", "valueSet": ["REGULAR", "SECONDARY", "ACC_2"] },
+            { "name": "BAN_STATUS", "valueSet": ["RUNNING", "CLOSED", "NEW", "DORMANT"] }
+        ]
+    }, {
+        "name": "TC_ACCOUNT_HISTORY",
+        "columns": [
+            { "name": "ACCOUNT_TYPE", "valueSet": ["SPECIAL", "POSTPAID", "PREPAID", "PRIVILEGED", "GOLD"] },
+            { "name": "ACCOUNT_SUB_TYPE", "valueSet": ["REGULAR", "SECONDARY", "ACC_2"] },
+            { "name": "BAN_STATUS", "valueSet": ["RUNNING", "CLOSED", "NEW", "DORMANT"] }
+        ],
+        "parent": "TC_ACCOUNT",
+        "oneToManyCount": 5
+    }, {
+        "name": "TC_ACCOUNT_RESULT",
+        "columns": [
+            { "name": "TC_ACCOUNT_RESULTS_ID" },
+            { "name": "TC_ACCOUNT_ID" },
+        ],
+        "parent": "TC_ACCOUNT",
+        "populateSelectedColumns": true
+    }],
+    "databaseType": "ORACLE"
+}
